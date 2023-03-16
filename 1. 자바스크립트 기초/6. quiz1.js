@@ -10,7 +10,7 @@ while(n1 <= n2){
 }
 console.log(`4 ~ 7 까지의 누적합 : ${total}`)
 
-//x y 의 스왑방법
+//x , y 의 스왑방법
 if (x > y){
     //swap
     var t;
