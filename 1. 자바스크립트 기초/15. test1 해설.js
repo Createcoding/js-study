@@ -42,11 +42,9 @@ while (true) {
 // 사용자의 남은 입력 기회
 var countDown = INIT_COUNT;
 
-
 // 실제 정답
 var secret = Math.floor(Math.random() * 100) + 1;
 console.log(secret);
-
 
 // 입력 최소값, 최대값
 var minValue = 1,
@@ -88,10 +86,8 @@ while (true) {
     } else {
         alert(`${countDown}번의 기회가 남았습니다.`);
     }
-
-
-    // end each game loop
-
+    
+// end each game loop
     
     if(gameEndFlag){
         var exitFlag = confirm(`한 판더?`);
@@ -99,7 +95,7 @@ while (true) {
             alert(`수고하셨습니다!`);
             break;
         }
-
     }
 
-} // end all game loop
+} 
+// end all game loop
