@@ -1,9 +1,9 @@
 
 
-for (var i = 0; i < 3; i++){
+outer: for (var i = 0; i < 3; i++){
     for (var j = 0; j < 2; j++){
         if(i === j ){
-            break;
+           
         }
 
 
