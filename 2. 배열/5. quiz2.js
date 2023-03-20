@@ -7,14 +7,18 @@
 4. 전체멤버를 전부 삭제할때까지 순회.
 */
 
-var tvxq = ['유노윤호','최강창민','영웅재중','믹키유천','시아준수'];
+var tvxq = ['유노윤호', '최강창민', '영웅재중', '믹키유천', '시아준수'];
 
-var removeName = prompt('삭제할 멤버이름을 입력하세요.');
 
-while(true){
-    if (tvxq.includes === removeName){
-         tvxq.slice(tvxq.indexOf, 1)
-      alert(`${removeName}멤버가 삭제되었습니다`);  
-    }else 
-      
+
+while (true) {
+  var removeName = prompt(`[${tvxq}]삭제할 멤버이름을 입력하세요.`);
+  for (var tv of tvxq) {
+    if (tvxq.includes === removeName) {
+      tvxq.slice(tvxq.indexOf, 1)
+      alert(`${removeName}멤버가 삭제되었습니다`);
+      break;
+    } else
+      alert(`${removeName}이름이 맞지않습니다 다시 입력해주세요`);
+  }
 }
