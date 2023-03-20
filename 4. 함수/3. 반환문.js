@@ -4,7 +4,7 @@ function add(n1,n2){
     var result = n1 + n2; 
     return result; //탈출문
 
-    console.log('메롱');
+//  console.log('메롱');
 }
 // 반환값 : 함수 호출 이후에 함수 밖으로 전달 되는 값
 
@@ -23,3 +23,4 @@ function multi(n1, n2){
     console.log(`${n1} x ${n2} = ${result}`);
 }
 var r3 = multi(10, 3); // return 한 값이 없기에 r3 에 저장한게 undefined
+

@@ -13,9 +13,10 @@ var tvxq = ['유노윤호', '최강창민', '영웅재중', '믹키유천', '시
 
 while (true) {
   var removeName = prompt(`[${tvxq}]삭제할 멤버이름을 입력하세요.`);
+
   for (var tv of tvxq) {
-    if (tvxq.includes === removeName) {
-      tvxq.slice(tvxq.indexOf, 1)
+    if (tv.includes(removeName)) {
+      tv.slice(tv.indexOf, 1)
       alert(`${removeName}멤버가 삭제되었습니다`);
       break;
     } else
