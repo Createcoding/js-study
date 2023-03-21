@@ -62,5 +62,11 @@ function filter(callback1){
 var q2 = filter(user => user.hobbys === user.hobbys[0]);
 console.log(q2);
 
+var q2 = fliter(function (user){
+    return user.hobbys === user.hobbys[0];
+})
+
+
+
 
 

@@ -187,14 +187,26 @@ console.log(mappedApples);
 
 
 console.log('====================');
+
 // userList에서 서울사는 user들의 
 // 첫번쨰 취미만 배열에 모아서 리턴
-
 const mapUserList = 
-    userList
-    .filter(user => user.hobbys[0])
-    .map(user => `유저의 취미는 ${user.hobbys[0]}입니다.`);
+    userList // 배열갯수 [{5}, {5}, {5}, {5}]
+    .filter(user => user.address === '서울') // [{5}, {5}, {5}]
+    .map(user => `서울사는 유저의 취미는 ${user.hobbys[0]}입니다.`);
+    //맵핑은 배열갯수는 같지만 프로퍼티갯수가 달라진다. ['', '', '']
 
 console.log(mapUserList);
+
+//맵핑을 여러개 하고싶을떄, forEach 반복문도 써봄.
+userList // [{5}, {5}, {5}, {5}]
+  .filter(user => user.address === '서울') // [{5}, {5}, {5}]
+  .map(user => ({
+    firstHobby: user.hobbys[0],
+    name: user.userName
+  })) // [{2}, {2}, {2}]
+  .forEach(info => {
+    console.log(`${info.name}회원의 첫번째 취미는 ${info.firstHobby}입니다.`);
+  });
 
 
