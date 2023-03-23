@@ -32,23 +32,27 @@ const userList = [{
 // userList에서 서울사는 user들의 
 // 첫번쨰 취미만 배열에 모아서 리턴
 
-const mapUserList = 
-    userList
-    .filter(user => user.hobbys[0])
-    .map(user => `유저의 취미는 ${user.hobbys[0]}입니다.`);
+// const mapUserList = 
+//     userList
+//     .filter(user => user.hobbys[0])
+//     .map(user => `유저의 취미는 ${user.hobbys[0]}입니다.`);
 
-console.log(mapUserList);
+// console.log(mapUserList);
 
-function map(callback){
-    const filterArr = [];
+function map(callback){     //여기서부터 시작. 콜백함수 매개변수로 받는다
+    const filterArr = [];   //배열을 만들어서 담는그릇 생성
 
-    for (let user of userList){
-        filterArr.push(callback(user));
+    for (let user of userList){   // for문을 이용해서 userList 를 돌린다.
+        filterArr.push(callback(user));// push해준다.어떤걸? callback 함수 받아온걸 조건으로
+                                // for문 안에서 user 이용해서 user.hobby[0]을 
+                                // 하나씩 배열에 담아준다.
     }
-    return filterArr;
+    return filterArr;   // 담은것들을 배열로 리턴
 }
-var q1 = map(user => user.hobbys[0]);
-console.log(q1);
+var q1 = map(user => user.hobbys[0]);  //콜백함수 호출
+console.log(q1);   //q1 은 배열이 나온다.
+
+console.log('=================================');
 
 function filter(callback1){
     const filterArr1 = [];
@@ -59,7 +63,7 @@ function filter(callback1){
     }
     return filterArr1;
 }
-var q2 = filter(user => user.hobbys === user.hobbys[0]);
+var q2 = filter(user => user.address === '서울');
 console.log(q2);
 
 var q2 = fliter(function (user){

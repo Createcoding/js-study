@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul id="fruits">
+        <li class="fr apple">사과</li>
+        <li class="fr banana">바나나</li>
+        <li class="fr grape">포도</li>
+    </ul>
+
+    <div class="box">
+      
+    </div>
+
+    <script>
+        // ul 요소노드를 취득
+        const $fruits = document.getElementById('fruits');
+        
+        console.log($fruits.children);   //배열아니다
+
+        const $children = [...$fruits.children];  // 배열로 만들어줌 스프레드.
+        console.log($children);   // 배열
+
+        // const $first = $children[0];
+        // const $last = $children[$children.length-1];
+
+        const $first = $fruits.firstElementChild;
+        const $last = $fruits.lastElementChild;
+
+        $first.style.fontSize = '2em';
+        $first.style.transform = 'rotate(180deg)';
+        $last.style.width = '20px';
+
+        console.log($first);
+        console.log($last);
+
+        const $box = document.querySelector('.box');
+
+        console.log($box.hasChildNodes());   // 공백까지 자식으로침. true반환
+
+        //자식 요소의 유무 확인
+        console.log(hasChildren($box));  
+
+        
+        function hasChildren($target){
+            return !!$box.children.length;//!은 not 이고 !!은 논리반환기능. length가 0이라면(자식이없다면) false 반환함. 
+        }
+
+    </script>
+
+</body>
+</html>

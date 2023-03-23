@@ -47,15 +47,15 @@ console.log(increase());  //2
 console.log(decrease());  //1  counter 가 공유되서 값이 전달됨.
 */
 
-// function counterWithCbClosure() {  //조작하는 도구를주는것
+// function counterWithCbClosure() {  //조작하는 도구를주는것-클로저함수
     
 //     let count = 0;  // count 라는 상태관리 변수
 
-//     function process(callback) { //리모콘을 커스텀해줘야함 
+//     function process(callback) { //리모콘을 커스텀해줘야함-내부함수
 //         return count = callback(count);  //콜백 커스텀함수를 만들어서 리턴.
 //     }
 
-//     return process;  //상태관리하기위한 리모콘
+//     return process;  //상태관리하기위한 리모콘(내부함수 자체를 보냄)
 // }
 
 // 위에꺼 리팩토링.
