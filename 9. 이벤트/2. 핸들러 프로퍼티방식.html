@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <button id="b1">클릭1</button>
+    <button id="b2">클릭2</button>
+    <button id="b3">클릭3</button>
+
+
+    <script>
+
+        // 프로퍼티 : 객체의 속성 
+        // const dog = {
+        //     name: '뽀삐'
+        // };
+        
+        // dog.age = 3;
+        // dog.bark = function(){
+        //     console.log('왈왈!');
+        // }
+
+        // dog.bark();
+        // dog.bark();
+        // dog.bark();
+
+        function sayHello(){  //함수선언
+            alert('안녕하세요!');
+        }
+
+        const [$b1, $b2, $b3] = [...document.querySelectorAll('button')]; // 버튼 잡아서 배열만들기
+
+        $b1.onclick = sayHello;  //함수호출 말고 함수 자체를 넣어라
+
+        $b2.onclick = function(){    // 함수 선언후 바로 함수를 붙여줘도 된다
+            $b2.style.width = '150px';
+        }
+        $b3.onmouseover = () => $b3.style.background = 'red';     // 화살표 함수로 쓰기
+        $b3.onmouseout = () => {$b3.style.background = 'yellow'; } 
+
+        // 핸들러 제거
+        $b3.onmouseover = null;    
+
+    </script>
+
+</body>
+</html>
