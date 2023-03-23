@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ul id="fruits">
+        <li>사과</li>
+        <li>바나나</li>
+        <li>포도</li>
+    </ul>
+
+    <script>
+        const $fruits = document.getElementById('fruits');
+        const $newLi = document.createElement('li');
+        $newLi.textContent = '망고';
+
+        $fruits.appendChild($newLi);  // 맨뒤에 추가가 된다.
+        // 자리를 지정해서 추가하고싶을때
+        // $fruits.insertBefore($newLi, $fruits.firstElementChild);  // 사과 앞으로 추가된다
+                                //(넣고싶은것,어디앞)
+         $fruits.insertBefore($newLi, document.querySelector('#fruits li:nth-child(2)')); // 응용
+
+
+         // 노드 이동
+         const [$apple, $mango, $banana, $grape] = [...$fruits.children];
+         $fruits.appendChild($apple);     // 이미있던 애를 쓰면 추가가아니라 그 위치(맨뒤)로 이동
+
+         $fruits.insertBefore($banana, $apple) // 이미있던 애를 쓰면 삽입이 아니라 사과 앞으로 이동.
+
+    </script>
+</body>
+</html>

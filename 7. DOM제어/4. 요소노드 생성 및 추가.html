@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ul id="fruits">
+        <li>사과</li>
+    </ul>
+
+
+
+    <script>
+        // 만들면서 추가하는 통합 함수
+        function append({$parent, tagName, text}) {
+
+            // makeTag();  $newTag 리턴해서 아래로 넣어버린다.
+            appendNewTag($parent, makeTag(tagName, text));
+        }
+
+
+        // 태그이름과 텍스트를 전달받으면 태그를 생성하는 함수
+        function makeTag(tagName, text = '') {
+            const $newTag = document.createElement(tagName);
+            if (text) $newTag.textContent = text; //텍스트가 있다면 넣어라!,  없으면 안넣음. 
+            return $newTag;
+        }
+
+        // 부모태그를 알려주면 자식을 추가해주는 함수
+        function appendNewTag($parent, $target) {
+            $parent.appendChild($target);
+        }
+
+        const $fruits = document.getElementById('fruits');
+
+
+        // li태그 생성
+        const $newLi = document.createElement('li'); //빈 li 만든것
+
+        // 텍스트 추가
+        $newLi.textContent = '바나나';
+
+        // 새로운 노드를 자식으로 추가하는 명령
+        // 노드를 추가 변경 등 조작 할때는 부모한테 부탁해야한다(부모 타겟팅)
+        $fruits.appendChild($newLi)
+
+
+        // 통합함수 호출
+        const fruitsNames = [
+            '바나나', '딸기', '포도',
+            '자몽', '오렌지', '레몬'
+          ];
+
+        fruitsNames.forEach(fn => {
+            append({
+                $parent: $fruits,
+                tagName: 'li',
+                text: fn
+            });
+        });
+    </script>
+</body>
+
+</html>
