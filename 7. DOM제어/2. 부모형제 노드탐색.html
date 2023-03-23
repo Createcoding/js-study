@@ -27,6 +27,16 @@
         const $wrap = $fruits.parentElement;
 
         const [$apple, $banana, $grape] = [...$wrap.firstElementChild.children];  // 응용
+     
+        const sameFlag = $banana.nextElementSibling //바나나의 다음형제. 포도.
+        console.log(sameFlag);  
+
+        $apple.parentElement.parentElement;  // 할머니찾기
+
+        // closest('CSS선택자');   가장 가까운 태그를 찾음
+        var foundElem = $apple.closest('.wrap');
+        console.log('찾은요소:', foundElem);
+        
     </script>
 
 </body>
