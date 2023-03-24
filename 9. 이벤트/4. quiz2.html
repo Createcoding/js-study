@@ -8,9 +8,16 @@
     <title>Document</title>
 </head>
 <style>
+.mark::before{
+    content: '▶ ';
+}
 
-.menu ul li{
-    display: block;
+.mark2::before{
+    content: '▼ ';
+}
+
+.hide{
+    display: none;
 
 }
 
@@ -32,12 +39,33 @@
     <script>
         const $lunches = document.getElementById('lunches');
         const $title = document.querySelector('.title');
-        const $li = [...document.querySelectorAll('li')];
+        const $ul = document.querySelector('ul');
 
-        $title.onclick = function(){
-            $li.style.display = 'none';
+       
+        $title.onclick = e => {
+            $ul.classList.toggle('hide');
         }
 
+        const $mark = $title.classList.add('mark');
+
+        console.log($title.classList.contains('mark'));
+
+        $title.onclick = (mark,mark2) => {
+           if($title.classList.contains('mark') === true){
+            $title.classList.replace('mark', 'mark2');
+           } else{
+            $title.classList.replace('mark2','mark');
+           }
+           
+        }
+        
+
+
+
+     
+
+
+     
         
 
        
