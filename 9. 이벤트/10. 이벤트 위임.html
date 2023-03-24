@@ -13,6 +13,7 @@
             list-style: none;
             padding: 20px;
             border: 2px solid red;
+            flex-wrap: wrap;
         }
 
         #fruits li {
@@ -69,12 +70,11 @@
         $fruits.onclick = e => {
 
             // 이벤트 타겟 제한하기
-            console.log(e.target.matches('#fruits li'));  
+            console.log(e.target.matches('#fruits li'));
             // 이벤트터진놈이 matches('css선택자')비교해서 같으면 true
-            if(!e.target.matches('#fruits li')){  //다르면 false
-                return;    //강제종료     
+            if (!e.target.matches('#fruits li')) { //다르면 false
+                return; //강제종료     
             }
-
 
             // console.log('클릭이벤트 발생!');
             // console.log(e.target);
@@ -87,6 +87,42 @@
             const $msg = document.querySelector('.msg');
             $msg.textContent = e.target.textContent;
         };
+
+        /*  새로운 과일 추가하기 기능
+            
+            입력창에 과일 이름을 쓰고
+            '추가' 버튼을 누르면
+            입력창에 있는 텍스트가
+            <li id='텍스트'>텍스트</li>
+            이런 형태로 생성되어 ul의 끝자식으로
+            추가되어야 한다.
+        */
+
+        const $addBtn = document.getElementById('add');
+        //입력창
+        const $textInput = document.querySelector('.text-box');
+
+
+        function makeNewFruit() {
+            const text = $textInput.value;
+
+            const $newLi = document.createElement('li');
+            $newLi.setAttribute('id', text.toLowerCase());
+            $newLi.textContent = text;
+
+            $fruits.appendChild($newLi);
+
+            $textInput.value = '';
+        }
+
+        $addBtn.onclick = e => makeNewFruit();
+
+        $textInput.onkeyup = e => {
+            if (e.key === 'Enter') makeNewFruit();
+        }
+
+        
+
     </script>
 
 </body>

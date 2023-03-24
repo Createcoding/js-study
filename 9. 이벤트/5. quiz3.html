@@ -65,7 +65,14 @@ body{
         }
         $button.onmouseout = () => $button.style.background = null;
         //드랍다운
-        $button.onclick = () => {
+        $button.onmouseover = () => {
+            if ($dropdown.style.display === 'none') {
+                $dropdown.style.display = 'block';
+            } else {$dropdown.style.display = 'none';
+        }
+
+        }
+        $button.onmouseout = () => {
             if ($dropdown.style.display === 'none') {
                 $dropdown.style.display = 'block';
             } else {$dropdown.style.display = 'none';
